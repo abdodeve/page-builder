@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "../node_modules/grapesjs/dist/css/grapes.min.css" ;
+@import "../node_modules/grapesjs-preset-webpage/dist/grapesjs-preset-webpage.min.css" ;
 @import "assets/css/style.css" ;
 /* @import "assets/css/grapes.min.css" ; */
