@@ -2,6 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as $ from "jquery";
 import * as grapesjs from "grapesjs" ;
 import 'grapesjs-preset-webpage';
+import './grapejs-plugins/adev_first_plugin/adev_first_plugin';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +30,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       noticeOnUnload: 0,
       container: '#gjs',
       height: '100%',
-      plugins: ['gjs-preset-webpage'],
+      // plugins: ['gjs-preset-webpage', 'adev_first_plugin'],
+      plugins: ['adev_first_plugin'],
       // pluginsOpts: {
       //               'gjs-preset-webpage': {
       //                 // options
@@ -130,11 +132,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       },
     });
 
-    editor.BlockManager.add('testBlock', {
-      label: 'Block',
-      attributes: { class:'gjs-fonts gjs-f-b1' },
-      content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`
-    });
+  // editor.addComponents(`<div style="margin:100px; padding:25px;">Content loaded from the plugin</div>`, { at: 0 });
+
 
 
     var pnls = editor.Panels.getPanels();
