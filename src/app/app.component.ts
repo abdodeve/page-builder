@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 import * as $ from "jquery";
 import * as grapesjs from "grapesjs" ;
 import 'grapesjs-preset-webpage';
-import './grapejs-plugins/adev_first_plugin/adev_first_plugin';
+import './grapejs-plugins/headers/headers' ;
 
 @Component({
   selector: 'app-root',
@@ -15,27 +15,17 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
 
-  //   var editor = grapesjs.init({
-  //     container : '#gjs',
-  //     plugins: ['gjs-preset-webpage'],
-  //     pluginsOpts: {
-  //       'gjs-preset-webpage': {
-  //         // options
-  //       }
-  //     }
-  // });
-
     var editor = grapesjs.init({
       showOffsets: 1,
       noticeOnUnload: 0,
       container: '#gjs',
       height: '100%',
-      // plugins: ['gjs-preset-webpage', 'adev_first_plugin'],
-      plugins: ['adev_first_plugin'],
-      // pluginsOpts: {
-      //               'gjs-preset-webpage': {
-      //                 // options
-      //               },
+      plugins: ['headers', 'gjs-preset-webpage' ],  
+      pluginsOpts: {
+                    'gjs-preset-webpage': {
+                      // options
+                    },
+                  },
       blockManager: {
         blocks: [
           {
@@ -47,6 +37,11 @@ export class AppComponent implements OnInit, AfterViewInit {
               <div>This is just a Lorem text: Lorem ipsum dolor sit amet</div>
             </section>`,
           },
+          {
+            label: 'Block 2',
+            attributes: { class:'gjs-fonts gjs-f-b1' },
+            content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`
+          }
         ]
       },
       fromElement: true,
@@ -60,7 +55,7 @@ export class AppComponent implements OnInit, AfterViewInit {
                         autoload: false,
                         autosave: false,
                       },
-     // storageManager: {type: 'none'},
+      // storageManager: {type: 'none'},
       style: `.panel {
         width: 90%;
         max-width: 700px;
