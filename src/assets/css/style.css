@@ -4,47 +4,20 @@ html {
   margin: 0;
 }
 
-.panel {
-    width: 90%;
-    max-width: 700px;
-    border-radius: 3px;
-    padding: 30px 20px;
-    margin: 150px auto 0px;
-    background-color: #d983a6;
-    box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.25);
-    color:rgba(255,255,255,0.75);
-    font: caption;
-    font-weight: 100;
-  }
+.creasouk-fonts {
+  /* font-size: 5em; */
+}
 
-  .welcome {
-    text-align: center;
-    font-weight: 100;
-    margin: 0px;
-  }
+.icon_content_1 {
+  vertical-align: middle;margin-right:30px;
+}
 
-  .logo {
-    width: 70px;
-    height: 70px;
-    vertical-align: middle;
-  }
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 300;
+}
 
-  .logo path {
-    pointer-events: none;
-    fill: none;
-    stroke-linecap: round;
-    stroke-width: 7;
-    stroke: #fff
-  }
-
-  .big-title {
-    text-align: center;
-    font-size: 3.5rem;
-    margin: 15px 0;
-  }
-
-  .description {
-    text-align: justify;
-    font-size: 1rem;
-    line-height: 1.5rem;
-  }
+.size-64 {
+  font-size: 5em;
+  color: #8080806b;
+}

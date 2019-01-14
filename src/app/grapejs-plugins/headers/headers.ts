@@ -8,12 +8,9 @@ export default grapesjs.plugins.add('headers', (editor,  opts = {}) => {
     // default options
   },  ...opts };
 
-  // Add components
-  loadComponents(editor, options);
-
   // Add blocks
   loadBlocks(editor, options);
 
-  // Load
-  editor.on('load', () => loadComponents(editor, options));
+  // Add components
+  // editor.on('load', () => loadComponents(editor, options));
 });

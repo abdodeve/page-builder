@@ -3,6 +3,8 @@ import * as $ from "jquery";
 import * as grapesjs from "grapesjs" ;
 import 'grapesjs-preset-webpage';
 import './grapejs-plugins/headers/headers' ;
+import './grapejs-plugins/content_1/content_1' ;
+import './grapejs-plugins/services/services' ;
 
 @Component({
   selector: 'app-root',
@@ -11,7 +13,7 @@ import './grapejs-plugins/headers/headers' ;
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'my-app';
+  title = 'crasouk-builder-app';
 
   ngOnInit() {
 
@@ -20,7 +22,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       noticeOnUnload: 0,
       container: '#gjs',
       height: '100%',
-      plugins: ['headers', 'gjs-preset-webpage' ],  
+      plugins: ['headers', 'content_1', 'services', 'gjs-preset-webpage'],
       pluginsOpts: {
                     'gjs-preset-webpage': {
                       // options
@@ -37,15 +39,18 @@ export class AppComponent implements OnInit, AfterViewInit {
               <div>This is just a Lorem text: Lorem ipsum dolor sit amet</div>
             </section>`,
           },
-          {
-            label: 'Block 2',
-            attributes: { class:'gjs-fonts gjs-f-b1' },
-            content: `<div style="padding-top:50px; padding-bottom:50px; text-align:center">Test block</div>`
-          }
         ]
       },
       fromElement: true,
-      /* 
+      canvas: {
+        styles: [
+          'assets/css/minimalist-basic.css',
+          'assets/css/bootstrap.min.css',
+          'assets/css/fontawesome/css/all.css',
+          'assets/css/style.css'
+        ]
+      },
+      /*
       storageManager:
          # (Dev mode) Don't store data on localStorage  -> false
          # (Production mode set storageManager to -> true to store localStorage)
@@ -55,51 +60,8 @@ export class AppComponent implements OnInit, AfterViewInit {
                         autoload: false,
                         autosave: false,
                       },
-      // storageManager: {type: 'none'},
-      style: `.panel {
-        width: 90%;
-        max-width: 700px;
-        border-radius: 3px;
-        padding: 30px 20px;
-        margin: 150px auto 0px;
-        background-color: #d983a6;
-        box-shadow: 0px 3px 10px 0px rgba(0,0,0,0.25);
-        color:rgba(255,255,255,0.75);
-        font: caption;
-        font-weight: 100;
-      }
-  
-      .welcome {
-        text-align: center;
-        font-weight: 100;
-        margin: 0px;
-      }
-  
-      .logo {
-        width: 70px;
-        height: 70px;
-        vertical-align: middle;
-      }
-  
-      .logo path {
-        pointer-events: none;
-        fill: none;
-        stroke-linecap: round;
-        stroke-width: 7;
-        stroke: #fff
-      }
-  
-      .big-title {
-        text-align: center;
-        font-size: 3.5rem;
-        margin: 15px 0;
-      }
-  
-      .description {
-        text-align: justify;
-        font-size: 1rem;
-        line-height: 1.5rem;
-      }
+      style: `
+      .classNameTest { color: red; }
       `,
       styleManager : {
         sectors: [{
@@ -127,21 +89,18 @@ export class AppComponent implements OnInit, AfterViewInit {
       },
     });
 
-  // editor.addComponents(`<div style="margin:100px; padding:25px;">Content loaded from the plugin</div>`, { at: 0 });
-
-
-
-    var pnls = editor.Panels.getPanels();
-    console.log(pnls);
-
-
-    editor.Panels.addButton('options',  {
-      id: 'visibility',
-      active: true, // active by default
-      className: 'btn-toggle-borders',
-      label: '<u>B</u>',
-      command: 'sw-visibility', // Built-in command
-    });
+    /**
+     * Add Buttons
+     * 
+     */
+    editor.Panels.addButton('options',  [{
+          id: 'visibility',
+          active: true, // active by default
+          className: 'btn-toggle-borders',
+          label: '<u>B</u>',
+          command: 'sw-visibility', // Built-in command
+        },
+    ]);
 
   }
 

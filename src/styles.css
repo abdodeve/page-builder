@@ -2,5 +2,8 @@
 
 @import "../node_modules/grapesjs/dist/css/grapes.min.css" ;
 @import "../node_modules/grapesjs-preset-webpage/dist/grapesjs-preset-webpage.min.css" ;
+
 @import "assets/css/style.css" ;
-/* @import "assets/css/grapes.min.css" ; */
+@import "assets/css/minimalist-basic.css" ;
+@import "assets/css/bootstrap.min.css" ;
+/* @import "assets/css/ionicons.min.css" ; */
