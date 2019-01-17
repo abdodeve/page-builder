@@ -25,13 +25,18 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/assets/sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/sb-admin/vendor/jquery-easing/jquery.easing.min.js",
+              "src/assets/sb-admin/js/sb-admin.js"
+            ]
           },
           "configurations": {
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "src/environments/environment.ts",
+                  "replace": "src/environments/jquery.easing.min.js",
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
