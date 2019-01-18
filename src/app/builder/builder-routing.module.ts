@@ -4,11 +4,22 @@ import { BuilderComponent } from './builder/builder.component';
 
 
 const routes: Routes = [
+  // { path: '',
+  //   redirectTo: '/dashboard',
+  //   pathMatch: 'full'
+  // },
+  // { path: ':page_name', component: BuilderComponent },
+  // { path: '**', redirectTo: '/dashboard'}
+
   {
-    path: '',
-    component: BuilderComponent
-  },
-  { path: ':page_name', component: BuilderComponent}
+    path: 'builder',
+    children: [
+      {
+        path: ':page_name',
+        component: BuilderComponent,
+      }
+    ]
+  }
 ];
 
 @NgModule({

@@ -8,6 +8,8 @@ import '../../grapejs-plugins/services/services' ;
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { DataService } from '../../services/data/data.service' ;
 import { BuilderService } from '../services/builder.service' ;
+import {SnotifyService} from 'ng-snotify';
+
 
 
 @Component({
@@ -26,7 +28,8 @@ export class BuilderComponent implements OnInit, AfterViewInit, OnDestroy {
     private activatedroute: ActivatedRoute,
     private router: Router,
     private dataService: DataService,
-    private builderService: BuilderService
+    private builderService: BuilderService,
+    private snotifyService: SnotifyService
   ) { 
     this.dataSubscription = this.dataService.get_data().subscribe( res => this.data = res );
   }
@@ -41,6 +44,7 @@ export class BuilderComponent implements OnInit, AfterViewInit, OnDestroy {
     // Change <html> styling
     document.documentElement.classList.add('full_page');
     
+    // Get page_name from Route
     this.activatedroute.params.subscribe(params => {
      this.page_name = params['page_name'] ;
       console.log(this.page_name) ;
@@ -84,7 +88,7 @@ export class BuilderComponent implements OnInit, AfterViewInit, OnDestroy {
          # (Dev mode) Don't store data on localStorage  -> false
          # (Production mode set storageManager to -> true to store localStorage)
       */
-      storageManager: { 
+      storageManager: {
                         type: null,
                         autoload: false,
                         autosave: false,
@@ -117,25 +121,7 @@ export class BuilderComponent implements OnInit, AfterViewInit, OnDestroy {
         ],
       },
     });
-
-    /**
-     * Add Commands
-     * 
-     */
-    this.editor.Commands.add('myCommand_123', {
-      run: (editor, sender) => {
-        // console.log('Hello world!');
-        console.log(this.router);
-        // console.log(editor, sender);
-        this.router.navigate(['/dashboard']);
-        return ;
-      },
-      stop:  function(editor, sender){
-        console.log('Stop!');
-      },
-    });
-
-
+    
     /**
      * Add Buttons
      * 
@@ -153,12 +139,20 @@ export class BuilderComponent implements OnInit, AfterViewInit, OnDestroy {
           active: false, // active by default
           className: 'btn-toggle-borders',
           label: 'Save',
-          command: 'myCommand_123', // Built-in command
+          command: 'save_cmd', // Built-in command
           attributes: { title: 'Sauvgarder'},
       },
     ]);
 
-    // Fetch data
+    
+    /**
+     * Add Commands
+     */
+    this.onClickSave( this.page_name );
+
+   /** 
+    * Fetch data
+    */
     this.fetch( this.page_name );
   }
 
@@ -170,15 +164,51 @@ export class BuilderComponent implements OnInit, AfterViewInit, OnDestroy {
    * Fetch data from server
    * 
    */
-  fetch( page_name: string ): void {
-    this.builderService.fetch( page_name ).subscribe(res => {
-      console.log(res);
-      
-    // Bind data to editor
-    // this.editor.setComponents('<p style="text-align:center">Content from database: <b>'+ this.page_name +'</b></p>');
-    this.editor.setComponents(res.content);
+  onClickSave ( page_name: string ): void {
+    // this.snotifyService.success('Example body content');
 
+
+    this.editor.Commands.add('save_cmd', {
+      run: (editor, sender) => {
+        // turn off the button
+        sender && sender.set('active', 0); 
+        editor.store();
+        // Retrieve data
+        var htmldata = editor.getHtml();
+
+        /**
+         *  Send request
+         * 
+         */
+        this.builderService.update( page_name, {content: htmldata} ).subscribe( res => {
+              this.snotifyService.success('Modification est sauvgardé', { position: 'rightTop' });
+        });
+        this.router.navigate(['/dashboard']);
+
+        return ;
+      },
+      stop:  function(editor, sender){
+        return ;
+      },
     });
   }
+
+  /**
+   * Fetch data from server
+   * 
+   */
+  fetch( page_name: string ): void {
+    this.builderService.fetch( page_name ).subscribe(res => {
+      // Check results
+      if( !res ){
+        this.router.navigate(['/dashboard']);
+        return false ;
+      }
+
+      // Bind data to editor
+      this.editor.setComponents(res.content);
+    });
+  }
+  
 
 }

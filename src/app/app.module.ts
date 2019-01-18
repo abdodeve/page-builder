@@ -3,23 +3,42 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module'; 
 import { HttpClientModule } from '@angular/common/http';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 
+// Import Modules
+// import { BuilderModule } from './builder/builder.module' ;
+import { DashboardModule } from './dashboard/dashboard.module' ;
+// import { LoginModule } from './login/login.module' ;
 
 
 import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './pageNotFound/page-not-found/page-not-found.component';
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
-     // import HttpClientModule after BrowserModule.
     HttpClientModule,
+    SnotifyModule,
+    // BuilderModule,
+    DashboardModule,
+    // LoginModule,
+
+    // Always after modules
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

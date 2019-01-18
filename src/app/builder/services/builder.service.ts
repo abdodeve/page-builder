@@ -40,4 +40,22 @@ export class BuilderService {
     return this.http.get<any>(url) ;
   }
 
+  /**
+   * Update Content
+   * 
+   * @returns void
+   */
+  update( page_name: string, data: any ): Observable <any> {
+
+    const url             = this.data.endpoint_url + '/pages/'+page_name+'.json' ;
+    const body            = JSON.stringify(data);
+    const httpOptions     = {
+                              headers: new HttpHeaders({
+                                'Accept'        : 'application/json',
+                                'Content-Type'  : 'application/json'
+                              })
+                            };
+    return this.http.patch<any>(url, body, httpOptions) ;
+  }
+
 }

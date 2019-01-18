@@ -22,3 +22,7 @@ html.full_page {
   height: 100%;
   margin: 0;
 }
+
+.logo {
+  height: 5em;
+}

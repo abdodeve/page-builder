@@ -10,7 +10,7 @@ export default (editor, config = {}) => {
         <div class="row">
            <div class="col-12">
               <div class="text-center">
-                 <img src="assets/img/logo.png" class="logo img-fluid" style="height: 5em;">
+                 <img src="assets/img/logo.png" class="logo img-fluid">
                  <h5 style="
                     font-weight: 300;
                     ">BEAUTIFUL CONTENT</h5>
