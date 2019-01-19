@@ -7,13 +7,14 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 
 // Import Modules
-// import { BuilderModule } from './builder/builder.module' ;
-import { DashboardModule } from './dashboard/dashboard.module' ;
-// import { LoginModule } from './login/login.module' ;
+import { BuilderModule } from './builder/builder.module' ;
+// import { DashboardModule } from './dashboard/dashboard.module' ;
+import { LoginModule } from './login/login.module' ;
 
 
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './pageNotFound/page-not-found/page-not-found.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 
@@ -23,14 +24,15 @@ import { PageNotFoundComponent } from './pageNotFound/page-not-found/page-not-fo
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     SnotifyModule,
-    // BuilderModule,
-    DashboardModule,
-    // LoginModule,
+    BuilderModule,
+    // DashboardModule,
+    LoginModule,
 
     // Always after modules
     AppRoutingModule,
