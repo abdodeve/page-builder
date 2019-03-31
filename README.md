@@ -1,27 +1,30 @@
-# MyApp
+# Creasouk Builder
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.4.
+Creasouk Builder is a Sites/Docs builder 
 
-## Development server
+This is powerful product you can do lot of stuff with it.
+This product allow user to create advanced sites or docs (bills, receipts ..) and much more without any coding knowledge
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Getting Started
 
-## Code scaffolding
+Until now this product is open source you can do whatever.
+Clone it and feel free.
+https://gitlab.com/abdelhadi.deve/creasouk-builder.git
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Built With
 
-## Build
+* [NodeJS]
+* [Angular 7]
+* [FireBase]
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Contributing
 
-## Running unit tests
+Please read for details on our code of conduct, and the process for submitting pull requests to us.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Authors
 
-## Running end-to-end tests
+* **Abdelhadi Habchi** - *Initial work & FullStack developer* - [AbdelhadiDev](https://abdelhadidev.com)
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## License
 
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+This project is licensed under the MIT License
