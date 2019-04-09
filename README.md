@@ -3,7 +3,7 @@
 Creasouk Builder is a Sites/Docs builder 
 
 This is powerful product you can do lot of stuff with it.
-This product allow user to create advanced sites or docs (bills, receipts ..) and much more without any coding knowledge
+This product allow user to create advanced sites or docs (bills, receipts ..) and much more without any coding knowledge, just by drag & drop .
 
 ## Getting Started
 
