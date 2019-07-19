@@ -1,6 +1,6 @@
-# Creasouk Builder
+# Page Builder
 
-Creasouk Builder is a Sites/Docs builder 
+Page Builder is a Sites/Docs builder 
 
 This is powerful product you can do lot of stuff with it.
 This product allow user to create advanced sites or docs (bills, receipts ..) and much more without any coding knowledge, just by drag & drop .
@@ -9,9 +9,9 @@ This product allow user to create advanced sites or docs (bills, receipts ..) an
 
 Until now this product is open source you can do whatever.
 Clone it and feel free.
-https://gitlab.com/abdelhadi.deve/creasouk-builder.git
+https://gitlab.com/abdelhadi.deve/page-builder.git
 
-* **Demo:** http://builder.creasouk.com
+* **Demo:** http://page-builder.abdelhadidev.tk
 
 
 ## Built With

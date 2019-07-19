@@ -7,7 +7,7 @@ import { Component, OnInit, AfterViewInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit, AfterViewInit {
-  title = 'creasouk-builder-app';
+  title = 'page-builder-app';
 
   ngOnInit() {
   }

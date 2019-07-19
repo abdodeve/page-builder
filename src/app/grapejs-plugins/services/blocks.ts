@@ -2,7 +2,7 @@ export default (editor, config = {}) => {
 
   // Services 1
   editor.BlockManager.add('services', {
-    category:'Creasouk',
+    category:'Page',
     label: 'Services',
     content: `
     <div class="container">

@@ -2,7 +2,7 @@ export default (editor, config = {}) => {
 
   // Header 1
   editor.BlockManager.add('Header_1', {
-    category:'Creasouk',
+    category:'Page',
     label: 'Header 1',
     content: `
     <div class="container">
